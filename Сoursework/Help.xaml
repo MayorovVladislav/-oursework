@@ -1,0 +1,26 @@
+﻿<Window x:Class="Сoursework.Help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Сoursework"
+        mc:Ignorable="d"
+        WindowStyle="ToolWindow"
+        Closed="Window_Closed"  
+        ResizeMode="NoResize"
+        
+        
+        Title="Help" Height="426.187" Width="423.094" WindowStartupLocation="Manual">
+    <Grid Background="{DynamicResource ControlBackgroundLine}" Margin="0,0,-6,-6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="245*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="130,0,98,288">
+            <Run FontSize="19">Создание графа:</Run>
+        </TextBlock>
+        <TextBlock x:Name="textblock"  HorizontalAlignment="Left" Height="290" VerticalAlignment="Top" Width="401" Margin="10,35,0,0" ><Run Text="Создание вершины - двойной клик ЛКМ по области редактирования."/><LineBreak/><Run Text="Вершину можно создать на определенном минимальном"/><LineBreak/><Run Text="расстоянии от ближайшей верины."/><LineBreak/><LineBreak/><Run Text="Созание ребра - выделение вершины с помощью ЛКМ."/><LineBreak/><Run Text="Ребро создается в заданном направлении и обратном."/><LineBreak/>То есть создается неориентированный граф<LineBreak/><LineBreak/><Run Text="После создания графа - блокируем редактирование и можем начать"/><LineBreak/><Run Text="поиск кратчайшего пути."/><LineBreak/><LineBreak/><Run Text="Поиск производится по алгоритму &quot;Поиск в ширину&quot; с маркировкой"/><LineBreak/><Run Text="дочерних вершин по уровню. Путь между вершинами осуществляется"/><LineBreak/><Run Text="выбором ближайшей по номеру вершины и после уже по уровню."/><LineBreak/><LineBreak/><Run Text="Кнопка Отменить - удаляет последнее действие."/><LineBreak/><LineBreak/><Run Text="Кнопка Очистить - удаляет граф."/></TextBlock>
+        <Button x:Name="button" Content="Exit" Margin="142,13,0,10" Click="button_Click" Grid.Row="1" HorizontalAlignment="Left" Width="132"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="4880991e-030a-4b3b-a99f-dad8bbcdb246" name="UMLUseCaseDiagram2" linkedPackageId="838d80ed-4ae0-452a-9778-b4a77225bede" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="8a25da02-3266-4463-bb07-8939ec73a6cd">
+      <profileInstance Id="b51e1da3-715a-46de-b1e9-4e8840343a7e" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="1ba70ae5-5e2f-44d8-a4c9-85e4ec4e4c30">
+      <profileInstance Id="2800ddec-406f-41b6-93c9-a2cc986e32d7" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="ec1af1aa-ddb0-47b8-8048-c7f01c03879b" name="Пользователь" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3a2d4264-c9db-4377-b33f-7a51754bc700" />
+        <targetEnds>
+          <association Id="d0f0d8b1-95e5-453e-85ca-714f99de3a11" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="Выбор режима работы" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f0698413-9115-4f44-a155-4d64b9bedcf5" LastKnownName="Выбор режима работы" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1217f3ea-ffff-49ab-aad8-6ac58b20dedc" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="85e9cf88-79ed-4d41-a5df-8e97ce54c4a2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5fde4efe-627f-4f58-ad2f-9887f51d767c" name="Выбор режима работы" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d522a415-c2e2-4a71-bc50-c2eb0954fc95" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="666ca994-ac15-4fd1-80a7-ffa8632f3eed" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f0698413-9115-4f44-a155-4d64b9bedcf5" name="Выбор режима работы" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f47228e4-596b-4d5c-b23d-4973157e2bef" />
+        <targetEnds>
+          <association Id="1786a183-7ab8-4d7f-b752-a4a4bdbe7dcc" isDerived="false" sourceEndRoleName="Выбор режима работы" targetEndRoleName="Редактирование" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b6f3f53c-7f7b-4818-a410-cda7868d2ad8" LastKnownName="Редактирование" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="317f0a79-88e1-403a-8311-439eb0b671f0" name="Выбор режима работы" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bd257d5e-5b6d-40cc-aed2-08d28a306965" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="59189e84-964b-4f3e-bddc-4c34b3a019b9" name="Редактирование" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7cf8eeb0-ba12-41b3-b2f5-70ebb0401f3c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="118b382e-daa1-4abf-b609-b1cd6021a41b" />
+          </association>
+          <association Id="4e8e0dfc-998e-4dcb-8741-48aa021f9daf" isDerived="false" sourceEndRoleName="Выбор режима работы" targetEndRoleName="Обработка данных" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5bf38778-e743-43c9-98a1-bc480391c55a" LastKnownName="Обработка данных" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="81f99461-fd76-4986-9b0b-23dbd4bc5a98" name="Выбор режима работы" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a9300c5d-a743-46c5-b9de-e9be7e4cb9d5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dd077d81-7d69-455d-a063-1ca6fde75a32" name="Обработка данных" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8617ea90-51e7-4e27-8d9a-9245977514c4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fd573f07-4b20-4eb7-ba5a-a55d04188669" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e4183919-7054-4f4c-b3fe-71b481365077" name="Создание узла" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d6379ec0-8ce6-4b9e-acc6-c7b812bf0206" />
+        <extendedCases>
+          <extend Id="0f713bc3-e23a-48ea-ab4d-cc436f2d3fc3">
+            <useCaseMoniker Id="d1134728-6375-4f20-baaf-186b4765e999" LastKnownName="Соединение узлов" />
+            <elementDefinition Id="2745d77a-a9fe-4006-babf-c543141b66a1" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="80319bf5-97c5-499b-bace-2b2d43186410" name="Создание ребра" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="839551ed-4eaa-4181-b5d9-9407fcf9ee6c" />
+        <suppliersInternal>
+          <dependency Id="3f9e169c-7118-42c4-943f-e3b376b94713">
+            <useCaseMoniker Id="d1134728-6375-4f20-baaf-186b4765e999" LastKnownName="Соединение узлов" />
+            <elementDefinition Id="09e1649b-d100-4e91-8426-c8acae6a31cf" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d1134728-6375-4f20-baaf-186b4765e999" name="Соединение узлов" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e0c75d98-adf8-4f19-8265-81830ba048c9" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b6f3f53c-7f7b-4818-a410-cda7868d2ad8" name="Редактирование" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="02609f6d-7575-4840-bb4c-427ada7ae30f" />
+        <targetEnds>
+          <association Id="9a586d47-cc85-40af-aead-1751229d09fc" isDerived="false" sourceEndRoleName="Редактирование" targetEndRoleName="Создание ребра" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="80319bf5-97c5-499b-bace-2b2d43186410" LastKnownName="Создание ребра" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d3093bbf-7adf-4b94-8425-521127058f4c" name="Редактирование" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1e1c91f3-35fe-497b-8eb0-4727ff519281" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bcd6448a-ad53-452a-af76-60ed0f30bdd1" name="Создание ребра" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1d14ad81-2896-4397-8912-ab26686fc172" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8bcf93b8-3a77-42dc-be0a-1df803c293db" />
+          </association>
+          <association Id="94caf0e6-c908-4dbd-9480-106a3dbb6a99" isDerived="false" sourceEndRoleName="Редактирование" targetEndRoleName="Создание узла" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e4183919-7054-4f4c-b3fe-71b481365077" LastKnownName="Создание узла" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="23b36c91-1619-4d7e-b632-ea72fe8f087f" name="Редактирование" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5acdea7e-3616-4f33-9294-3497464b7b82" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f4eea054-171d-407f-abf4-e0f624b653d6" name="Создание узла" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="95c1370a-0b38-4461-844c-a1b47d51258e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="acf18752-15ae-4543-990c-f08946d72ff9" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5bf38778-e743-43c9-98a1-bc480391c55a" name="Обработка данных" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2cf3807a-8f76-4d15-a45e-8568bcfa7bb8" />
+        <targetEnds>
+          <association Id="3553ea35-0c60-4019-b687-7d3f4554ecce" isDerived="false" sourceEndRoleName="Обработка данных" targetEndRoleName="Выбор вершин" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="80f0336a-8ce6-42cb-b708-2af9a5ce60af" LastKnownName="Выбор вершин" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f6f0c6c3-13dd-40f1-a4e4-f20405d425eb" name="Обработка данных" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5fa123ce-39d7-40a3-b177-fd925c00339c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="86c75491-b9b4-4b9b-98dd-3a56a9f93a5c" name="Выбор вершин" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="33f6cfb6-a951-4db7-99b9-213ac30a162d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="22ca06de-2cef-45a8-8145-289ce0d8c1eb" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="80f0336a-8ce6-42cb-b708-2af9a5ce60af" name="Выбор вершин" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="abd6eae9-c87d-4e0f-8bab-b1d1c4d27949" />
+        <targetEnds>
+          <association Id="896a09a2-5fd3-4b4c-9a95-69e0a8b197b2" isDerived="false" sourceEndRoleName="Выбор вершин" targetEndRoleName="Поиск кратчайшего пути" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f5e21614-8b1f-4bab-ba45-4731e03b6572" LastKnownName="Поиск кратчайшего пути" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b1f5e2a2-5713-4717-aeb5-90c73a353b8f" name="Выбор вершин" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="dc47e327-0388-4442-beb1-7673453ec176" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4a3000dc-3077-4315-8960-73cf08d2c367" name="Поиск кратчайшего пути" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4b7ce691-e85f-4a04-85bc-92684f423fce" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4d529c2e-390e-4a4a-9514-059cb9769bbe" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f5e21614-8b1f-4bab-ba45-4731e03b6572" name="Поиск кратчайшего пути" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d2d02395-d1c5-4fe5-8182-0dd7bc846004" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="838d80ed-4ae0-452a-9778-b4a77225bede" name="ModelingProject1">
+    <elementDefinition Id="1db2f133-1676-4707-8904-ef506dcf5eaa" />
+  </package>
+</useCaseModelRoot>

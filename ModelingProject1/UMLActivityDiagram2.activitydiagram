@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="3dcb02f8-22c7-427a-a69c-15c9a4910d51" name="Activity2" linkedPackageId="2f1445aa-66de-463e-87ea-c8ef8458978c" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="00567074-79e6-4a29-9732-054c28ae533c" name="Activity2" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="0b940272-716b-40ca-a651-c5fd08f70c9e" />
+        <nodes>
+          <initialNode Id="8ecd11ef-bd74-4eb6-8821-3b103a65cab6" name="Initial1" isLeaf="false">
+            <elementDefinition Id="be0e663c-9c1a-45ac-bc14-04c61a14c804" />
+            <flowNodeTargets>
+              <controlFlow Id="fa75630d-3157-48ae-8f0a-85d8b3d23bb8" isLeaf="false">
+                <opaqueActionMoniker Id="5d5e9835-69ac-4d6c-9028-173ff467ffc5" LastKnownName="Создание вершины" />
+                <elementDefinition Id="36770257-5fd4-45ea-8c22-54bc2bb8cb09" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="288248cb-4053-4bb8-b5b6-cac6b65ebb63" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="68d48058-0bd3-4e6e-a1dd-48c8c49bd8dc" />
+          </activityFinalNode>
+          <opaqueAction Id="5d5e9835-69ac-4d6c-9028-173ff467ffc5" name="Создание вершины" isLeaf="false">
+            <elementDefinition Id="2d41c74e-0ad1-4829-92ee-6381f091d433" />
+            <flowNodeTargets>
+              <controlFlow Id="c29caba5-4c4b-4ab7-b595-d5f10ea8b29f" isLeaf="false">
+                <forkNodeMoniker Id="50a69136-0b13-40a8-9294-b96342e36778" LastKnownName="Fork1" />
+                <elementDefinition Id="596fad66-b10c-4441-a060-909d26ec0300" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="607003a2-18bc-4cff-83c5-8bf84461d88d" name="Выбор начальной и конечной вершины" isLeaf="false">
+            <elementDefinition Id="b00c6e14-d5b2-4fbb-bde7-5ec2d458143c" />
+            <flowNodeTargets>
+              <controlFlow Id="41c848bf-e4eb-4d04-863b-65fa75097c55" isLeaf="false">
+                <opaqueActionMoniker Id="221fdb80-e861-4df1-8e4b-d6669465e6e9" LastKnownName="Поиск кратчайшего пути" />
+                <elementDefinition Id="4e3aa434-97b9-4a89-9a08-17cae55ee059" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="221fdb80-e861-4df1-8e4b-d6669465e6e9" name="Поиск кратчайшего пути" isLeaf="false">
+            <elementDefinition Id="1302d762-dc5e-4ae6-b4d7-d2004d719f0c" />
+            <flowNodeTargets>
+              <controlFlow Id="8604d87b-cd21-405e-a710-1ba60ede8eb8" isLeaf="false">
+                <activityFinalNodeMoniker Id="288248cb-4053-4bb8-b5b6-cac6b65ebb63" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="d92430a0-8826-4ca6-b6bb-0d6da4271186" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <forkNode Id="50a69136-0b13-40a8-9294-b96342e36778" name="Fork1" isLeaf="false">
+            <elementDefinition Id="42d97802-32bd-4082-8e37-aa0c7d2762fa" />
+            <flowNodeTargets>
+              <controlFlow Id="02690673-fca0-4054-b502-fb79a6af247d" isLeaf="false">
+                <decisionNodeMoniker Id="6cbb8f03-ad14-41a9-8f0c-7e126405de59" LastKnownName="Decision1" />
+                <elementDefinition Id="115e190d-310e-41f6-bd2a-0aac343b3309" />
+              </controlFlow>
+              <controlFlow Id="f7c1593f-c703-4360-9dff-7d7ecd96c5a4" isLeaf="false">
+                <opaqueActionMoniker Id="dea9d261-0595-42e0-be58-a38963afd2ae" LastKnownName="Создание ребра" />
+                <elementDefinition Id="5c144063-adc0-4669-bb97-017ef24796e0" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+          <decisionNode Id="6cbb8f03-ad14-41a9-8f0c-7e126405de59" name="Decision1" isLeaf="false">
+            <elementDefinition Id="17b41177-6450-48f6-b9a2-827fefb6e088" />
+            <flowNodeTargets>
+              <controlFlow Id="4cae588d-c7bf-4537-94c5-c4d9f8ab5ec5" isLeaf="false">
+                <opaqueActionMoniker Id="5d5e9835-69ac-4d6c-9028-173ff467ffc5" LastKnownName="Создание вершины" />
+                <elementDefinition Id="8fa38c7e-269d-4468-8113-a3b7b053eb6d" />
+              </controlFlow>
+              <controlFlow Id="0d884393-9d98-4b8c-9b8c-2e2ab49122c5" isLeaf="false">
+                <joinNodeMoniker Id="5fd7ea7c-759f-4cc2-aece-4d2e15457653" LastKnownName="Join1" />
+                <elementDefinition Id="4ceb670a-b327-4154-95d7-7bc65fc78fed" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="dea9d261-0595-42e0-be58-a38963afd2ae" name="Создание ребра" isLeaf="false">
+            <elementDefinition Id="c89968fa-7063-497b-9321-6de95a43aa05" />
+            <flowNodeTargets>
+              <controlFlow Id="11c9433a-7b0f-4acb-87d2-87d12ad666e1" isLeaf="false">
+                <decisionNodeMoniker Id="b8b347e5-888a-4281-9d27-8bbec74d03da" LastKnownName="Decision2" />
+                <elementDefinition Id="e226c57b-1867-439a-95ec-f4c10424eb42" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="b8b347e5-888a-4281-9d27-8bbec74d03da" name="Decision2" isLeaf="false">
+            <elementDefinition Id="d4397aa9-208f-474d-9c9c-015954e1498f" />
+            <flowNodeTargets>
+              <controlFlow Id="2b87d48e-7781-4384-b09d-462d7dd3a248" isLeaf="false">
+                <joinNodeMoniker Id="5fd7ea7c-759f-4cc2-aece-4d2e15457653" LastKnownName="Join1" />
+                <elementDefinition Id="0ce382db-e3ee-4db4-a179-1bb2655bc1d7" />
+              </controlFlow>
+              <controlFlow Id="a87aff63-ad5d-4624-adf2-03e905d7d789" isLeaf="false">
+                <opaqueActionMoniker Id="dea9d261-0595-42e0-be58-a38963afd2ae" LastKnownName="Создание ребра" />
+                <elementDefinition Id="f7f405b4-097b-45ec-9393-2f0dabf5d5a4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode Id="5fd7ea7c-759f-4cc2-aece-4d2e15457653" name="Join1" isLeaf="false">
+            <elementDefinition Id="bf8a64b4-5c21-40d3-bb0e-2c66d41ce704" />
+            <flowNodeTargets>
+              <controlFlow Id="9a93fe85-bd5f-4a61-849a-fe7118a77eb7" isLeaf="false">
+                <opaqueActionMoniker Id="607003a2-18bc-4cff-83c5-8bf84461d88d" LastKnownName="Выбор начальной и конечной вершины" />
+                <elementDefinition Id="ff9187f3-8ed9-4eaf-9678-5a21dfd7db07" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="2f1445aa-66de-463e-87ea-c8ef8458978c" name="ModelingProject1">
+    <elementDefinition Id="1db2f133-1676-4707-8904-ef506dcf5eaa" />
+    <profileInstances>
+      <packageHasProfileInstances Id="4c0dbc6f-91be-4492-b182-4fe578a90729">
+        <profileInstance Id="6e96f6ce-5eac-48ba-aa57-79fe68c87919" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="f3c4a7ce-6bc7-4b25-af9e-c4c20715f6e9">
+        <profileInstance Id="baa5ca00-5a65-4743-a98d-c784985ef994" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>
