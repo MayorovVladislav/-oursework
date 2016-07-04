@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 
 using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.Win32;
 
 namespace Сoursework
 {
@@ -89,6 +90,56 @@ namespace Сoursework
             Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
         }
 
+
+
+        private void CREATEEDGE(string[][] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix[i].GetLength(0); j++)
+                {
+                    List<Node> a = new List<Сoursework.Node>();
+                    foreach (var item in graph.ListNode)
+                    {
+                        if (i == item.Id)
+                        {
+                            a.Add(item);
+                            break;
+                        }
+                    }
+                    foreach (var item in graph.ListNode)
+                    {
+                        if (matrix[i][j] != "")
+                        {
+                            if (int.Parse(matrix[i][j]) == item.Id)
+                            {
+                                a.Add(item);
+                                break;
+                            }
+                        }
+                    }
+                    if (a.Count == 2)
+                    {
+                        Edge edge = new Сoursework.Edge(a);
+                        graph.ListEdge.Add(edge);
+                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
+                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+                    }
+
+                }
+            }
+
+            Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
+
+            foreach (var x in graph.ListNode)            
+                foreach (var item in graph.ListEdge)                
+                    if (item.Listnode.Contains(x))                    
+                        x.node.StrokeThickness = 1;
+                    
+                
+            
+
+        }
         /// <summary>
         /// The event handler for the click event node. The creation of edges.
         /// </summary>
@@ -111,6 +162,7 @@ namespace Сoursework
                                     el.StrokeThickness = 4;
                                 if (vertex.Count == 2)
                                 {
+                                    #region
                                     if (vertex[0] == vertex[1])
                                     {
                                         foreach (var item1 in vertex)
@@ -129,11 +181,19 @@ namespace Сoursework
                                         elip.Clear();
                                         return;
                                     }
+                                    #endregion
                                     //edge => a---b
                                     Edge a = new Edge(vertex);
-                                    for (int i = 0; i < vertex.Count; i++)
+
+                                    //for (int i = 0; i < vertex.Count; i++)
+                                    //    vertextwo.Add(vertex[i]);
+                                    //vertextwo.Reverse();
+
+
+                                    for (int i = vertex.Count - 1; i >= 0; i--)
                                         vertextwo.Add(vertex[i]);
-                                    vertextwo.Reverse();
+
+                                    #region
                                     foreach (var ed in graph.ListEdge)
                                         if (a.Equals(ed))
                                         {
@@ -144,17 +204,25 @@ namespace Сoursework
                                             elip.Clear();
                                             return;
                                         }
+                                    #endregion
+
                                     //edge => b---a
                                     Edge b = new Edge(vertextwo);
                                     stack.Push(1);
+
                                     buttonundo.IsEnabled = true;
+
                                     graph.ListEdge.Add(a);
                                     GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                     Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+
                                     graph.ListEdge.Add(b);
                                     GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                     Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+
+
                                     Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
+
                                     foreach (var x in elip)
                                         x.StrokeThickness = 1;
                                     vertex.Clear();
@@ -247,6 +315,8 @@ namespace Сoursework
                     g.node.StrokeThickness = 0;
             GridDraw.Children.RemoveAt(GridDraw.Children.Count - 1);
         }
+
+
 
         /// <summary>
         /// Finding the shortest path BFS.
@@ -458,34 +528,56 @@ namespace Сoursework
             graph = new GraphDraw();
             GridDraw.Children.Clear();
             SaveOpen s;
-            using (FileStream f = new FileStream("Ser.bin", FileMode.Open))
-            {
-                BinaryFormatter bf = new BinaryFormatter();
-                s = (SaveOpen)bf.Deserialize(f);
-            }
 
-            foreach (var item in s.NodesValue)
-            {
-                graph.ListNode.Add(new Node((int)item.Value.X, (int)item.Value.Y, item.Key, Node_MouseRightButtonDown));
-                GridDraw.Children.Add(graph.ListNode[graph.ListNode.Count - 1].node);
-            }
-            buttoneclear.IsEnabled = true;
-            buttonundo.IsEnabled = true;
-            Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
 
-            
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.FileName = "Graph";
+            open.DefaultExt = ".bin";
+            open.Filter = "Documents (.bin)|*.bin*";
+
+
+            Nullable<bool> result = open.ShowDialog();
+            if (result == true)
+            {
+
+
+                using (FileStream f = new FileStream(open.FileName, FileMode.Open))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    s = (SaveOpen)bf.Deserialize(f);
+                }
+
+                foreach (var item in s.NodesValue)
+                {
+                    graph.ListNode.Add(new Node((int)item.Value.X, (int)item.Value.Y, item.Key, Node_MouseRightButtonDown));
+                    GridDraw.Children.Add(graph.ListNode[graph.ListNode.Count - 1].node);
+                }
+                buttoneclear.IsEnabled = true;
+                buttonundo.IsEnabled = true;
+                Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
+
+
+                CREATEEDGE(s.matrix);
+            }
         }
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
             SaveOpen s = new SaveOpen(graph);
-
-            using (FileStream f = new FileStream("Ser.bin", FileMode.Create))
+            SaveFileDialog save = new SaveFileDialog();
+            save.FileName = "Graph";
+            save.DefaultExt = ".bin";
+            save.Filter = "Documents (.bin)|*.bin*";
+            Nullable<bool> result = save.ShowDialog();
+            if (result == true)
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(f, s);
+                using (FileStream f = new FileStream(save.FileName, FileMode.Create))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(f, s);
+                }
             }
-
         }
 
         private void Window_Closed(object sender, EventArgs e)
