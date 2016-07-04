@@ -540,14 +540,11 @@ namespace Сoursework
             Nullable<bool> result = open.ShowDialog();
             if (result == true)
             {
-
-
                 using (FileStream f = new FileStream(open.FileName, FileMode.Open))
                 {
                     BinaryFormatter bf = new BinaryFormatter();
                     s = (SaveOpen)bf.Deserialize(f);
                 }
-
                 foreach (var item in s.NodesValue)
                 {
                     graph.ListNode.Add(new Node((int)item.Value.X, (int)item.Value.Y, item.Key, Node_MouseRightButtonDown));
@@ -556,8 +553,6 @@ namespace Сoursework
                 buttoneclear.IsEnabled = true;
                 buttonundo.IsEnabled = true;
                 Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
-
-
                 CREATEEDGE(s.matrix);
             }
         }
