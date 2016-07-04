@@ -92,54 +92,7 @@ namespace Сoursework
 
 
 
-        private void CREATEEDGE(string[][] matrix)
-        {
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix[i].GetLength(0); j++)
-                {
-                    List<Node> a = new List<Сoursework.Node>();
-                    foreach (var item in graph.ListNode)
-                    {
-                        if (i == item.Id)
-                        {
-                            a.Add(item);
-                            break;
-                        }
-                    }
-                    foreach (var item in graph.ListNode)
-                    {
-                        if (matrix[i][j] != "")
-                        {
-                            if (int.Parse(matrix[i][j]) == item.Id)
-                            {
-                                a.Add(item);
-                                break;
-                            }
-                        }
-                    }
-                    if (a.Count == 2)
-                    {
-                        Edge edge = new Сoursework.Edge(a);
-                        graph.ListEdge.Add(edge);
-                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
-                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
-                    }
 
-                }
-            }
-
-            Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
-
-            foreach (var x in graph.ListNode)            
-                foreach (var item in graph.ListEdge)                
-                    if (item.Listnode.Contains(x))                    
-                        x.node.StrokeThickness = 1;
-                    
-                
-            
-
-        }
         /// <summary>
         /// The event handler for the click event node. The creation of edges.
         /// </summary>
@@ -523,6 +476,12 @@ namespace Сoursework
         }
 
 
+
+        /// <summary>
+        /// Open graph
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenClick(object sender, RoutedEventArgs e)
         {
             graph = new GraphDraw();
@@ -553,10 +512,61 @@ namespace Сoursework
                 buttoneclear.IsEnabled = true;
                 buttonundo.IsEnabled = true;
                 Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
-                CREATEEDGE(s.matrix);
+                CreateEdge(s.matrix);
             }
         }
+        /// <summary>
+        /// The creation of edges from the saved file
+        /// </summary>
+        /// <param name="matrix"></param>
+        private void CreateEdge(string[][] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix[i].GetLength(0); j++)
+                {
+                    List<Node> a = new List<Сoursework.Node>();
+                    foreach (var item in graph.ListNode)
+                    {
+                        if (i == item.Id)
+                        {
+                            a.Add(item);
+                            break;
+                        }
+                    }
+                    foreach (var item in graph.ListNode)
+                    {
+                        if (matrix[i][j] != "")
+                        {
+                            if (int.Parse(matrix[i][j]) == item.Id)
+                            {
+                                a.Add(item);
+                                break;
+                            }
+                        }
+                    }
+                    if (a.Count == 2)
+                    {
+                        Edge edge = new Сoursework.Edge(a);
+                        graph.ListEdge.Add(edge);
+                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
+                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+                    }
+                }
+            }
+            Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
 
+            foreach (var x in graph.ListNode)
+                foreach (var item in graph.ListEdge)
+                    if (item.Listnode.Contains(x))
+                        x.node.StrokeThickness = 1;
+        }
+
+        /// <summary>
+        /// Save graph
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveClick(object sender, RoutedEventArgs e)
         {
             SaveOpen s = new SaveOpen(graph);
@@ -574,6 +584,7 @@ namespace Сoursework
                 }
             }
         }
+
 
         private void Window_Closed(object sender, EventArgs e)
         {
