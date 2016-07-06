@@ -368,6 +368,7 @@ namespace Сoursework
             }
         }
 
+   
         /// <summary>
         /// Exit.
         /// </summary>
@@ -484,10 +485,6 @@ namespace Сoursework
         /// <param name="e"></param>
         private void OpenClick(object sender, RoutedEventArgs e)
         {
-            graph = new GraphDraw();
-            GridDraw.Children.Clear();
-            SaveOpen s;
-
 
             OpenFileDialog open = new OpenFileDialog();
 
@@ -499,6 +496,10 @@ namespace Сoursework
             Nullable<bool> result = open.ShowDialog();
             if (result == true)
             {
+                graph = new GraphDraw();
+                GridDraw.Children.Clear();
+                SaveOpen s;
+
                 using (FileStream f = new FileStream(open.FileName, FileMode.Open))
                 {
                     BinaryFormatter bf = new BinaryFormatter();

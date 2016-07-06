@@ -33,7 +33,6 @@ namespace Сoursework
                     dic[item[0].Id].Add(item[1].Id);
 
 
-
             matrix = new string[graph.ListNode.Count][];
 
             for (int i = 0; i < matrix.GetLength(0); i++)

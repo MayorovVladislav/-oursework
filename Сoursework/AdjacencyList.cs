@@ -64,7 +64,7 @@ namespace Сoursework
             {
                 int u = openVertex.Dequeue();
                 for (int i = 0; i < matrix[u].Length; i++)
-                    if (matrix[u][i] != "")                    
+                    if (matrix[u][i] != "")
                         if (visited[matrix[u][i]] == false)
                         {
                             vertex[int.Parse(matrix[u][i])] = vertex[u] + 1;
