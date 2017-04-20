@@ -72,7 +72,6 @@ namespace Сoursework
                                 break;
                             }
                         }
-
                         if (build)
                         {
                             AddNodeGrid(n);
