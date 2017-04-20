@@ -149,7 +149,7 @@ namespace Сoursework
                                     #endregion
                                     //edge => a---b
                                     Edge a = new Edge(vertex);
-                                    
+
                                     for (int i = vertex.Count - 1; i >= 0; i--)
                                     {
                                         vertextwo.Add(vertex[i]);
@@ -174,12 +174,12 @@ namespace Сoursework
                                     graph.ListEdge.Add(a);
                                     GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                     Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
-                                    
+                                    stack.Push(1);
                                     if (!(bool)this.paintcheckBox.IsChecked)
                                     {
                                         //edge => b---a
                                         Edge b = new Edge(vertextwo);
-                                        stack.Push(1);
+                                       
 
                                         buttonundo.IsEnabled = true;
 
@@ -266,12 +266,10 @@ namespace Сoursework
                         if (!(bool)paintcheckBox.IsChecked)
                         {
                             RemoveEdge(); //b---a
-
                             Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
                         }
                         else
                         {
-
                             Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
                         }
 
