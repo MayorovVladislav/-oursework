@@ -7,6 +7,9 @@ using System.Windows;
 
 namespace Сoursework
 {
+    /// <summary>
+    /// Класс для се(де)риализации графа.
+    /// </summary>
     [Serializable]
     class SaveOpen
     {
@@ -59,8 +62,6 @@ namespace Сoursework
                     matrix[i] = new string[1] { "" };
                 }
             }
-
-
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 Array.Sort(matrix[i]);

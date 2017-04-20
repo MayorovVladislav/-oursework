@@ -49,7 +49,7 @@ namespace Сoursework
             paintcheckBox.IsChecked = false;
         }
         /// <summary>
-        /// Handler by double-clicking on GridDraw.
+        /// Обработка двойного клика в элементе GridDraw.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>         
@@ -85,8 +85,9 @@ namespace Сoursework
                 }
             }
         }
+
         /// <summary>
-        /// The method of creating node. PRIVATE
+        /// Метод создания узла.
         /// </summary>
         /// <param name="n"></param>
         private void AddNodeGrid(Node n)
@@ -96,14 +97,11 @@ namespace Сoursework
             stack.Push(0);
             buttonundo.IsEnabled = true;
             GridDraw.Children.Add(graph.ListNode[graph.ListNode.Count - 1].NodeV);
-            Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
+            Node.Content = $"Количество узлов: {graph.ListNode.Count.ToString()}";
         }
 
-
-
-
         /// <summary>
-        /// The event handler for the click event node. The creation of edges.
+        /// Обработчик события клика по узлу. Создание Ребра.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -151,17 +149,11 @@ namespace Сoursework
                                     #endregion
                                     //edge => a---b
                                     Edge a = new Edge(vertex);
-
-                                    //for (int i = 0; i < vertex.Count; i++)
-                                    //    vertextwo.Add(vertex[i]);
-                                    //vertextwo.Reverse();
-
-
+                                    
                                     for (int i = vertex.Count - 1; i >= 0; i--)
                                     {
                                         vertextwo.Add(vertex[i]);
                                     }
-
                                     #region
                                     foreach (var ed in graph.ListEdge)
                                     {
@@ -171,7 +163,6 @@ namespace Сoursework
                                             {
                                                 items.StrokeThickness = 1;
                                             }
-
                                             vertex.Clear();
                                             vertextwo.Clear();
                                             elip.Clear();
@@ -180,13 +171,10 @@ namespace Сoursework
                                     }
                                     #endregion
 
-
-
                                     graph.ListEdge.Add(a);
                                     GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                     Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
-
-
+                                    
                                     if (!(bool)this.paintcheckBox.IsChecked)
                                     {
                                         //edge => b---a
@@ -200,12 +188,12 @@ namespace Сoursework
                                         Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
 
 
-                                        Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
+                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
 
                                     }
                                     else
                                     {
-                                        Edge.Content = $"Number of edge: {((graph.ListEdge.Count)).ToString()}";
+                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
                                     }
                                     foreach (var x in elip)
                                     {
@@ -240,8 +228,8 @@ namespace Сoursework
                 GridDraw.Children.Clear();
                 graph = new GraphDraw();
 
-                Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
-                Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
+                Node.Content = $"Количество узлов: {graph.ListNode.Count.ToString()}";
+                Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
                 stack = new Stack<int>();
                 buttonundo.IsEnabled = false;
                 buttoneclear.IsEnabled = false;
@@ -264,7 +252,7 @@ namespace Сoursework
                         elip.Clear();
                         graph.ListNode.RemoveAt(graph.ListNode.Count - 1);
                         GridDraw.Children.RemoveAt(GridDraw.Children.Count - 1);
-                        Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
+                        Node.Content = $"Количество узлов: {graph.ListNode.Count.ToString()}";
                         if (graph.ListNode.Count == 0)
                         {
                             buttoneclear.IsEnabled = false;
@@ -279,12 +267,12 @@ namespace Сoursework
                         {
                             RemoveEdge(); //b---a
 
-                            Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
+                            Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
                         }
                         else
                         {
 
-                            Edge.Content = $"Number of edge: {((graph.ListEdge.Count)).ToString()}";
+                            Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
                         }
 
                         break;
@@ -297,8 +285,9 @@ namespace Сoursework
                 buttonundo.IsEnabled = false;
             }
         }
+
         /// <summary>
-        /// Удаление ребра. PRIVATE
+        /// Удаление ребра.
         /// </summary>
         private void RemoveEdge()
         {
@@ -333,8 +322,6 @@ namespace Сoursework
 
             GridDraw.Children.RemoveAt(GridDraw.Children.Count - 1);
         }
-
-
 
         /// <summary>
         /// Поиск кратчайшего пути
@@ -461,7 +448,6 @@ namespace Сoursework
             }
         }
 
-
         /// <summary>
         /// Выход.
         /// </summary>
@@ -567,8 +553,6 @@ namespace Сoursework
                     }
 
                     toggle.Content = "Block Editing";
-                    //comboBox.Text = "";
-                    //comboBox1.Text = "";
                     comboBox.Items.Clear();
                     comboBox1.Items.Clear();
                 }
@@ -590,10 +574,8 @@ namespace Сoursework
             help.Show();
         }
 
-
-
         /// <summary>
-        /// Open graph
+        /// Загрузка графа.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -638,9 +620,9 @@ namespace Сoursework
             }
         }
         /// <summary>
-        /// The creation of edges from the saved file
+        /// Создание ребер на основе сохраненного файла с узлами.
         /// </summary>
-        /// <param name="matrix"></param>
+        /// <param name="matrix">Матрица смежности.</param>
         private void CreateEdge(string[][] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -691,7 +673,7 @@ namespace Сoursework
         }
 
         /// <summary>
-        /// Save graph
+        /// Сохранение графа.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -704,7 +686,7 @@ namespace Сoursework
                 DefaultExt = ".bin",
                 Filter = "Documents (.bin)|*.bin*"
             };
-            Nullable<bool> result = save.ShowDialog();
+            bool? result = save.ShowDialog();
             if (result == true)
             {
                 using (FileStream f = new FileStream(save.FileName, FileMode.Create))

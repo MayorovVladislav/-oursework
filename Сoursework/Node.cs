@@ -8,13 +8,11 @@ using System;
 namespace Сoursework
 {
     /// <summary>
-    /// Node in the graph.
+    /// Узел внутри графа.
     /// </summary>
     [Serializable]
     class Node
     {
-
-
         [NonSerialized]
         private Ellipse node;
         [NonSerialized]
@@ -29,6 +27,13 @@ namespace Сoursework
         public Ellipse NodeV { get => node; set => node = value; }
         public Label ValueNode { get => valuenode; set => valuenode = value; }
 
+        /// <summary>
+        /// Создание узла.
+        /// </summary>
+        /// <param name="x">Координата по x.</param>
+        /// <param name="y">Координата по y.</param>
+        /// <param name="id">Идентификатор узла.</param>
+        /// <param name="e">Событие выбора узла. Передача обработки нажатия мыши.</param>
         public Node(int x, int y, int id , MouseButtonEventHandler e)
         {
             Id = id;
@@ -74,7 +79,7 @@ namespace Сoursework
         }
 
         /// <summary>
-        /// Comparison of nodes.
+        /// Сравнение узлов.
         /// </summary>
         public override bool Equals(object obj)
         {
@@ -82,6 +87,10 @@ namespace Сoursework
             if (this.X == o.X && this.Y == o.Y) return true;
             else return false;
         }
+        /// <summary>
+        /// Хэщ-код узла.
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return X + Y;

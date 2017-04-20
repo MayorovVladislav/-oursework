@@ -7,7 +7,7 @@ using System;
 namespace Сoursework
 {
     /// <summary>
-    ///An edge of the graph.
+    /// Ребра внутри графа.
     /// </summary>
 
     [Serializable]
@@ -21,7 +21,10 @@ namespace Сoursework
         public Line Liner { get => liner; set => liner = value; }
         internal List<Node> Listnode { get => listnode; set => listnode = value; }
 
-
+        /// <summary>
+        /// Создание ребра.
+        /// </summary>
+        /// <param name="v">Узлы, между которыми необзодимо создать ребро.</param>
         public Edge(List<Node> v)
         {
             Liner = new Line()
@@ -41,9 +44,9 @@ namespace Сoursework
         }
 
         /// <summary>
-        /// The comparison of edges.
+        /// Сравнение ребер.
         /// </summary>
-        /// <param name="obj">Edge</param>
+        /// <param name="obj">Ребро.</param>
         /// <returns></returns>
         public override bool Equals(object obj)
         {
@@ -58,6 +61,10 @@ namespace Сoursework
                 return false;
             }
         }
+        /// <summary>
+        /// Хэш-код ребра.
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return (int)(Liner.X1 + Liner.X2 + Liner.Y1 + Liner.Y2);

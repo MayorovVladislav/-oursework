@@ -3,7 +3,7 @@
 namespace Сoursework
 {
     /// <summary>
-    /// Class graph.
+    /// Класс, содержащий все ребра и узлы графа.
     /// </summary>
     class GraphDraw
     {
