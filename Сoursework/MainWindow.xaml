@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Сoursework"
         mc:Ignorable="d" ResizeMode="CanResizeWithGrip"
         Closed="Window_Closed"
-        Title="Graph" Height="701.333" Width="1014" Background="Black" MinWidth="500" MinHeight="600" Icon="/Resources/weapon.png">
+        Title="Граф" Height="701.333" Width="1014" Background="Black" MinWidth="500" MinHeight="600" Icon="/Resources/weapon.png">
 
 
     <Grid Margin="0,0,4,-1">
@@ -14,10 +14,10 @@
         <Grid x:Name ="GridDraw"  MouseLeftButtonDown="GridDraw_MouseLeftButtonDown" Margin="10,26,258,35" Background="{DynamicResource BackgroundHoverMenu}"/>
 
         <Grid x:Name="GridPanel" Margin="0,36,9,30" HorizontalAlignment="Right" Width="244">
-            <ToggleButton Margin="28,130,26,0" x:Name="toggle" Click="ToggleButton_Click" Content="Block Editing" Foreground="{DynamicResource DisabledBrush}" FontSize="16" Height="43" VerticalAlignment="Top" FontFamily="Quirlycues" TabIndex="0"/>
-            <Button x:Name="buttoneclear"  Margin="0,0,26,30" Content="Clear"  FontSize="18.667" Click="Clear_Click" ToolTip="Remove graph" HorizontalAlignment="Right" Width="70" Height="27" VerticalAlignment="Bottom" TabIndex="5"/>
-            <Button x:Name="search" Margin="31,316,23,0" Content="Search" FontSize="18.667" Click="search_Click" ToolTip="Finding the shortest path" Height="33" VerticalAlignment="Top" TabIndex="3"/>
-            <GroupBox Header="Finding the way"  Height="133" Margin="0,178,26,0" x:Name="groupBox" VerticalAlignment="Top" IsEnabled="True" BorderBrush="#FFECF4F9" Foreground="#FFFDA422" HorizontalAlignment="Right" Width="190">
+            <ToggleButton Margin="10,130,10,0" x:Name="toggle" Click="ToggleButton_Click" Content="Блокировка редактирования" Foreground="{DynamicResource DisabledBrush}" FontSize="16" Height="43" VerticalAlignment="Top" FontFamily="Quirlycues" TabIndex="0"/>
+            <Button x:Name="buttoneclear"  Margin="0,0,26,30" Content="Очистить"  FontSize="18.667" Click="Clear_Click" ToolTip="Remove graph" HorizontalAlignment="Right" Width="85" Height="27" VerticalAlignment="Bottom" TabIndex="5"/>
+            <Button x:Name="search" Margin="31,316,23,0" Content="Поиск" FontSize="18.667" Click="Search_Click" ToolTip="Finding the shortest path" Height="33" VerticalAlignment="Top" TabIndex="3"/>
+            <GroupBox Header="Поиск пути"  Height="133" Margin="0,178,26,0" x:Name="groupBox" VerticalAlignment="Top" IsEnabled="True" BorderBrush="#FFECF4F9" Foreground="#FFFDA422" HorizontalAlignment="Right" Width="190">
                 <GroupBox.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF878585" Offset="0"/>
@@ -28,46 +28,47 @@
 
                     <!--<TextBox x:Name="textBox" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="105" Margin="63,23,0,0" Height="26" PreviewTextInput="textBox_PreviewTextInput" TextChanged="textBox_TextChanged" TabIndex="1"/>-->
                     <!--<TextBox x:Name="textBox1" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="105" Margin="63,64,0,0"  Height="26"  PreviewTextInput="textBox_PreviewTextInput" TextChanged="textBox_TextChanged" TabIndex="2"/>-->
-                    
 
-                    <Label x:Name="label" Content="Start" HorizontalAlignment="Left" Height="26" Margin="10,23,0,0" VerticalAlignment="Top" Width="48" Foreground="White" FontSize="14.667"/>
-                    <Label x:Name="label1" Content="Finish" HorizontalAlignment="Left" Height="26" Margin="10,64,0,0" VerticalAlignment="Top" Width="48" Foreground="White" FontSize="14.667"/>
+
+                    <Label x:Name="label" Content="Начало" HorizontalAlignment="Left" Height="26" Margin="10,23,0,0" VerticalAlignment="Top" Width="48" Foreground="White" FontSize="14.667"/>
+                    <Label x:Name="label1" Content="Конец" HorizontalAlignment="Left" Height="26" Margin="10,64,0,0" VerticalAlignment="Top" Width="48" Foreground="White" FontSize="14.667"/>
                     <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="58,23,0,0" VerticalAlignment="Top" Width="120"/>
                     <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="58,62,0,0" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </GroupBox>
-            <Button x:Name="buttonundo" Content="Undo"  FontSize="18.667" Click="Undo_Click" ToolTip="Undo the last action" Background="{DynamicResource ToggleButtonChecked}" Margin="0,0,157,30" HorizontalAlignment="Right" Width="77" Height="27" VerticalAlignment="Bottom" TabIndex="4"/>
+            <Button x:Name="buttonundo" Content="Отменить"  FontSize="18.667" Click="Undo_Click" ToolTip="Undo the last action" Background="{DynamicResource ToggleButtonChecked}" Margin="0,0,140,30" HorizontalAlignment="Right" Width="94" Height="27" VerticalAlignment="Bottom" TabIndex="4"/>
+            <GroupBox x:Name="paintsetting" Header="Режим рисования" HorizontalAlignment="Left" Height="71" Margin="20,10,0,0" VerticalAlignment="Top" Width="214">
+                <CheckBox Checked="paintcheckBox_Checked" x:Name="paintcheckBox" Content="В одну сторону" HorizontalAlignment="Left" Height="16" Margin="10,10,0,0" VerticalAlignment="Top" Width="194"/>
+            </GroupBox>
         </Grid>
         <Menu x:Name="menu" Margin="0,0,-4,0" Height="21" VerticalAlignment="Top">
-            <MenuItem Header="File"  Width="47" Height="26">
-                <MenuItem Header="Exit" Click="MenuItem_Click">
+            <MenuItem Header="Файл"  Width="47" Height="26">
+                <MenuItem Header="Выход" Click="MenuItem_Click">
                     <MenuItem.Icon>
                         <Path Width="16" Height="16" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource new_windowStyle0}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Save" Click="SaveClick">
+                <MenuItem Header="Сохранить" Click="SaveClick">
                     <MenuItem.Icon>
                         <Path Width="16" Height="16" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource new_windowStyle0}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Open" Click="OpenClick">
+                <MenuItem Header="Загрузить" Click="OpenClick">
                     <MenuItem.Icon>
                         <Path Width="16" Height="16" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource new_windowStyle0}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Information">
-                <MenuItem Header="About the program" Click="MenuItem_Click_1"/>
-                <MenuItem Header="Help" Click="MenuItem_Click_2"/>
+            <MenuItem Header="Информация">
+                <MenuItem Header="О программе" Click="MenuItem_Click_1"/>
+                <MenuItem Header="Помощь" Click="MenuItem_Click_2"/>
             </MenuItem>
         </Menu>
-        
-        
-        <StatusBar Margin="0,0,-4,0" Height="30" VerticalAlignment="Bottom">
-            <StatusBarItem x:Name="Node" Content="Number of node: 0"/>
-            <StatusBarItem x:Name="Edge" Content="Number of edge: 0"/>
 
+
+        <StatusBar Margin="0,0,-4,0" Height="30" VerticalAlignment="Bottom">
+            <StatusBarItem x:Name="Node" Content="Количество узлов: 0"/>
+            <StatusBarItem x:Name="Edge" Content="Количество ребер: 0"/>
         </StatusBar>
     </Grid>
-
 </Window>

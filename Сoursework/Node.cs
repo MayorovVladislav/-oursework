@@ -13,68 +13,28 @@ namespace Сoursework
     [Serializable]
     class Node
     {
-        private int numer;
-        
+
+
         [NonSerialized]
-        public Ellipse node;
+        private Ellipse node;
         [NonSerialized]
-        public Label valuenode;
+        private Label valuenode;
         int x, y, id;
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
+        private int numer;
 
-            set
-            {
-                id = value;
-            }
-        }
-        public int X
-        {
-            get
-            {
-                return x;
-            }
-
-            set
-            {
-                x = value;
-            }
-        }
-        public int Y
-        {
-            get
-            {
-                return y;
-            }
-
-            set
-            {
-                y = value;
-            }
-        }
-        public int Numer
-        {
-            get
-            {
-                return numer;
-            }
-
-            set
-            {
-                numer = value;
-            }
-        }
+        public int X { get => x; set => x = value; }
+        public int Y { get => y; set => y = value; }
+        public int Id { get => id; set => id = value; }
+        public int Numer { get => numer; set => numer = value; }
+        public Ellipse NodeV { get => node; set => node = value; }
+        public Label ValueNode { get => valuenode; set => valuenode = value; }
 
         public Node(int x, int y, int id , MouseButtonEventHandler e)
         {
             Id = id;
             X = x;
             Y = y;
-            node = new Ellipse()
+            NodeV = new Ellipse()
             {
                 Height = 28,
                 Width = 28,
@@ -95,22 +55,22 @@ namespace Сoursework
                         }
                 }
             };
-            node.Name = "n" + id.ToString();
-            node.ToolTip = id.ToString();
-            node.Margin = new Thickness(x - 15, y - 15, 0, 0);            
-            node.MouseRightButtonDown += new MouseButtonEventHandler(e);
-            valuenode = new Label()
+            NodeV.Name = "n" + id.ToString();
+            NodeV.ToolTip = id.ToString();
+            NodeV.Margin = new Thickness(x - 15, y - 15, 0, 0);            
+            NodeV.MouseRightButtonDown += new MouseButtonEventHandler(e);
+            ValueNode = new Label()
             {
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left,
                 Width = 32,
                 Height = 28
             };
-            valuenode.Name = "l" + id.ToString();
-            valuenode.Content = Id.ToString();
-            valuenode.Uid = id.ToString();
-            valuenode.Margin = new Thickness(x - 10, y - 14, 0, 0);
-            valuenode.FontSize = 14;
+            ValueNode.Name = "l" + id.ToString();
+            ValueNode.Content = Id.ToString();
+            ValueNode.Uid = id.ToString();
+            ValueNode.Margin = new Thickness(x - 10, y - 14, 0, 0);
+            ValueNode.FontSize = 14;
         }
 
         /// <summary>

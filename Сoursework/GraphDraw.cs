@@ -8,45 +8,11 @@ namespace Сoursework
     class GraphDraw
     {
         List<Edge> listedge = new List<Edge>();
-        public List<Edge> ListEdge
-        {
-            get
-            {
-                return listedge;
-            }
-
-            set
-            {
-                listedge = value;
-            }
-        }
-
         List<Node> listnode = new List<Node>();
-        public List<Node> ListNode
-        {
-            get
-            {
-                return listnode;
-            }
-
-            set
-            {
-                listnode = value;
-            }
-        }
-        public bool Editing
-        {
-            get
-            {
-                return editing;
-            }
-
-            set
-            {
-                editing = value;
-            }
-        }    
-
         bool editing = true;
+
+        public bool Editing { get => editing; set => editing = value; }
+        public List<Edge> ListEdge { get => listedge; set => listedge = value; }
+        public List<Node> ListNode { get => listnode; set => listnode = value; }
     }
 }
