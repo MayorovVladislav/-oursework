@@ -694,7 +694,7 @@ namespace Сoursework
             }
         }
 
-        private void paintcheckBox_Checked(object sender, RoutedEventArgs e)
+        private void PaintcheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
         }

@@ -19,6 +19,7 @@ namespace Сoursework
         private Label valuenode;
         int x, y, id;
         private int numer;
+        private int value;
 
         public int X { get => x; set => x = value; }
         public int Y { get => y; set => y = value; }
@@ -26,6 +27,9 @@ namespace Сoursework
         public int Numer { get => numer; set => numer = value; }
         public Ellipse NodeV { get => node; set => node = value; }
         public Label ValueNode { get => valuenode; set => valuenode = value; }
+        public int Value { get => value; set => this.value = value; }
+
+        
 
         /// <summary>
         /// Создание узла.
@@ -62,7 +66,7 @@ namespace Сoursework
             };
             NodeV.Name = "n" + id.ToString();
             NodeV.ToolTip = id.ToString();
-            NodeV.Margin = new Thickness(x - 15, y - 15, 0, 0);            
+            NodeV.Margin = new Thickness(x - 15, y - 15, 0, 0);
             NodeV.MouseRightButtonDown += new MouseButtonEventHandler(e);
             ValueNode = new Label()
             {

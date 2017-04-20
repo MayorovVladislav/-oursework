@@ -9,10 +9,13 @@ namespace Сoursework
     /// <summary>
     /// Ребра внутри графа.
     /// </summary>
-
     [Serializable]
     class Edge
     {
+        public int Value { get => value; set => this.value = value; }
+
+
+
         [NonSerialized]
         private Line liner;
 
@@ -20,6 +23,8 @@ namespace Сoursework
 
         public Line Liner { get => liner; set => liner = value; }
         internal List<Node> Listnode { get => listnode; set => listnode = value; }
+        
+        private int value;
 
         /// <summary>
         /// Создание ребра.
@@ -45,7 +50,7 @@ namespace Сoursework
 
         /// <summary>
         /// Сравнение ребер.
-        /// </summary>
+        /// </summary>с
         /// <param name="obj">Ребро.</param>
         /// <returns></returns>
         public override bool Equals(object obj)
@@ -61,6 +66,7 @@ namespace Сoursework
                 return false;
             }
         }
+
         /// <summary>
         /// Хэш-код ребра.
         /// </summary>
@@ -69,7 +75,5 @@ namespace Сoursework
         {
             return (int)(Liner.X1 + Liner.X2 + Liner.Y1 + Liner.Y2);
         }
-
-       
     }
 }
