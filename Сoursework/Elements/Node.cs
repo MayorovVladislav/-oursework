@@ -58,7 +58,7 @@ namespace Сoursework
                     GradientOrigin = new Point(0.7, 0.3),
                     GradientStops = new GradientStopCollection()
                         {
-                             new GradientStop() {Color = Colors.DarkOrange, Offset = 1},
+                             new GradientStop() {Color = Colors.DeepSkyBlue, Offset = 1},
                              new GradientStop() {Color = Colors.Violet, Offset = 1},
                              new GradientStop() {Color = Colors.Black, Offset =1}
                         }

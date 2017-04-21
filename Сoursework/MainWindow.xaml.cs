@@ -30,7 +30,9 @@ namespace Сoursework
         List<Ellipse> elip;
         Stack<int> stack;
 
-
+        /// <summary>
+        /// Мнтод входа в приложения
+        /// </summary>
         public MainWindow()
         {
             graph = new GraphDraw();
@@ -40,6 +42,7 @@ namespace Сoursework
             vertextwo = new List<Node>();
             stack = new Stack<int>();
 
+            
             toggle.IsChecked = false;
             buttonundo.IsEnabled = false;
             groupBox.IsEnabled = false;
@@ -405,9 +408,9 @@ namespace Сoursework
                         }
                     }
 
-                    SolidColorBrush redBrush = new SolidColorBrush()
+                    SolidColorBrush blueBrush = new SolidColorBrush()
                     {
-                        Color = Colors.Orange
+                        Color = Colors.CornflowerBlue
                     };
                     if (n != null)
                     {
@@ -420,7 +423,7 @@ namespace Сoursework
                                     if (n.Numer > item.Listnode[0].Numer)
                                     {
                                         n = item.Listnode[0];
-                                        item.Liner.Stroke = redBrush;
+                                        item.Liner.Stroke = blueBrush;
                                         item.Liner.StrokeThickness = 7;
                                         Grid.SetZIndex(item.Liner, 1);
                                         Grid.SetZIndex(item.Listnode[0].NodeV, 2);
@@ -491,8 +494,6 @@ namespace Сoursework
                     {
                         GridDraw.Children.Add(item.ValueNode);
                     }
-
-                    toggle.Content = "UnBlock Editing";
                     comboBox.Text = "0";
                     comboBox1.Text = "1";
                     foreach (var item1 in vertex)
@@ -548,8 +549,6 @@ namespace Сoursework
                             GridDraw.Children.Remove(item.ValueNode);
                         }
                     }
-
-                    toggle.Content = "Block Editing";
                     comboBox.Items.Clear();
                     comboBox1.Items.Clear();
                 }
@@ -605,7 +604,7 @@ namespace Сoursework
                         }
                         buttoneclear.IsEnabled = true;
                         buttonundo.IsEnabled = true;
-                        Node.Content = $"Number of node: {graph.ListNode.Count.ToString()}";
+                        Node.Content = $"Количество узлов:  {graph.ListNode.Count.ToString()}";
                         CreateEdge(s.matrix);
                     }
                     catch (System.Runtime.Serialization.SerializationException)
@@ -655,7 +654,7 @@ namespace Сoursework
                     }
                 }
             }
-            Edge.Content = $"Number of edge: {((graph.ListEdge.Count) / 2).ToString()}";
+            Edge.Content = $"Количество ребер:  {((graph.ListEdge.Count) / 2).ToString()}";
 
             foreach (var x in graph.ListNode)
             {

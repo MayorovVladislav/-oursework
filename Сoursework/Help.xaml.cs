@@ -19,16 +19,29 @@ namespace Сoursework
     /// </summary>
     public partial class Help : Window
     {
+        /// <summary>
+        /// Инициализация окна
+        /// </summary>
         public Help()
         {
             InitializeComponent();
         }
         
+        /// <summary>
+        /// Сокрытие окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
         }
 
+        /// <summary>
+        /// Сокрытие окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
         {
             this.Hide();
