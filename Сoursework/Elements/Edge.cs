@@ -55,12 +55,16 @@ namespace Сoursework
         {
             this.value = value;
 
+            double X1 = v[0].NodeV.Margin.Left + 14;
+            double Y1 = v[0].NodeV.Margin.Top + 14;
+            double X2 = v[1].NodeV.Margin.Left + 14;
+            double Y2 = v[1].NodeV.Margin.Top + 14;
             Liner = new Line()
             {
-                X1 = v[0].NodeV.Margin.Left + 14,
-                Y1 = v[0].NodeV.Margin.Top + 14,
-                X2 = v[1].NodeV.Margin.Left + 14,
-                Y2 = v[1].NodeV.Margin.Top + 14
+                X1 = X1,
+                Y1 = Y1,
+                X2 = X2,
+                Y2 = Y2
             };
 
             SolidColorBrush blackBrush = new SolidColorBrush()
@@ -71,10 +75,6 @@ namespace Сoursework
 
             if (value)
             {
-                // координаты центра отрезка
-                double X3 = (this.Liner.X1 + this.Liner.X2) / 2;
-                double Y3 = (this.Liner.Y1 + this.Liner.Y2) / 2;
-
                 // длина отрезка
                 double d = Math.Sqrt(Math.Pow(this.Liner.X2 - this.Liner.X1, 2) + Math.Pow(this.Liner.Y2 - this.Liner.Y1, 2));
 
@@ -82,11 +82,15 @@ namespace Сoursework
                 double X = this.Liner.X2 - this.Liner.X1;
                 double Y = this.Liner.Y2 - this.Liner.Y1;
 
-                // координаты точки, удалённой от центра к началу отрезка на 10px
-                double X4 = X3 - (X / d) * 10;
-                double Y4 = Y3 - (Y / d) * 10;
+                //отступ от конца ребра
+                double X3 = X2 - (X / d) * 15;
+                double Y3 = Y2 - (Y / d) * 15;
 
-               //к оординаты вектора перпендикуляра
+                // координаты точки, удалённой от центра к началу отрезка на 10px
+                double X4 = X3 - (X / d) * 15;
+                double Y4 = Y3 - (Y / d) * 15;
+
+                //к оординаты вектора перпендикуляра
                 double Xp = this.Liner.Y2 - this.Liner.Y1;
                 double Yp = this.Liner.X1 - this.Liner.X2;
 
@@ -95,6 +99,9 @@ namespace Сoursework
                 double Y5 = Y4 + (Yp / d) * 5;
                 double X6 = X4 - (Xp / d) * 5;
                 double Y6 = Y4 - (Yp / d) * 5;
+
+
+
 
                 Arrow1 = new Line()
                 {
