@@ -29,6 +29,7 @@ namespace Сoursework
         List<Node> vertex, vertextwo;
         List<Ellipse> elip;
         Stack<int> stack;
+        int countedge;
 
         /// <summary>
         /// Мнтод входа в приложения
@@ -187,6 +188,7 @@ namespace Сoursework
                                         graph.ListEdge.Add(a);
                                         GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                         Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+                                       
 
                                         if (a.Arrow1 != null)
                                         {
@@ -199,7 +201,8 @@ namespace Сoursework
                                             Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Arrow2, -1);
                                         }
                                         stack.Push(2);
-                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
+                                        countedge++;
+                                        Edge.Content = $"Количество ребер: {(countedge).ToString()}";
                                     }
                                     else
                                     {
@@ -229,13 +232,17 @@ namespace Сoursework
                                         GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                         Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
 
+                                        countedge++;
+
                                         //edge => b---a
                                         Edge b = new Edge(vertextwo);
                                         buttonundo.IsEnabled = true;
                                         graph.ListEdge.Add(b);
                                         GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                         Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
-                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
+                                        Edge.Content = $"Количество ребер: {(countedge).ToString()}";
+                                        
+
                                         stack.Push(1);
                                     }
 
@@ -243,7 +250,6 @@ namespace Сoursework
                                     {
                                         x.StrokeThickness = 1;
                                     }
-
                                     vertex.Clear();
                                     vertextwo.Clear();
                                     elip.Clear();
@@ -268,12 +274,12 @@ namespace Сoursework
                 vertex.Clear();
                 vertextwo.Clear();
                 elip.Clear();
-
+                countedge = 0;
                 GridDraw.Children.Clear();
                 graph = new GraphDraw();
 
                 Node.Content = $"Количество узлов: {graph.ListNode.Count.ToString()}";
-                Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
+                Edge.Content = $"Количество ребер: {(countedge).ToString()}";
                 stack = new Stack<int>();
                 buttonundo.IsEnabled = false;
                 buttoneclear.IsEnabled = false;
@@ -307,14 +313,16 @@ namespace Сoursework
                     {
                         RemoveEdge(); //a---b
                         RemoveEdge(); //b---a
-                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
+                        countedge -= 2;
+                        Edge.Content = $"Количество ребер: {(countedge).ToString()}";
 
                         break;
                     }
                 case 2:
                     {
                         RemoveEdge(); //a---b
-                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
+                        countedge--;
+                        Edge.Content = $"Количество ребер: {(countedge).ToString()}";
                         break;
                     }
                 default:
@@ -675,14 +683,14 @@ namespace Сoursework
             {
                 graph = new GraphDraw();
                 GridDraw.Children.Clear();
-                SaveOpen s;
+                countedge = 0;
 
                 using (FileStream f = new FileStream(open.FileName, FileMode.Open))
                 {
                     BinaryFormatter bf = new BinaryFormatter();
                     try
                     {
-                        s = (SaveOpen)bf.Deserialize(f);
+                        SaveOpen s = (SaveOpen)bf.Deserialize(f);
                         foreach (var item in s.NodesValue)
                         {
                             graph.ListNode.Add(new Node((int)item.Value.X, (int)item.Value.Y, item.Key, Node_MouseRightButtonDown));
@@ -733,14 +741,15 @@ namespace Сoursework
                     }
                     if (a.Count == 2)
                     {
-                        Edge edge = new Сoursework.Edge(a);
+                        Edge edge = new Edge(a);
                         graph.ListEdge.Add(edge);
+                        countedge++;
                         GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                         Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
                     }
                 }
             }
-            Edge.Content = $"Количество ребер:  {((graph.ListEdge.Count) / 2).ToString()}";
+            Edge.Content = $"Количество ребер:  {(countedge).ToString()}";
 
             foreach (var x in graph.ListNode)
             {

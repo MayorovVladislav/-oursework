@@ -12,21 +12,17 @@ namespace Сoursework
     [Serializable]
     class Edge
     {
-        public bool Value { get => value; set => this.value = value; }
-
         [NonSerialized]
         private Line liner, arrow1, arrow2;
-
-
         private List<Node> listnode;
-
-        public Line Liner { get => liner; set => liner = value; }
-        internal List<Node> Listnode { get => listnode; set => listnode = value; }
-        public Line Arrow1 { get => arrow1; set => arrow1 = value; }
-        public Line Arrow2 { get => arrow2; set => arrow2 = value; }
-
         private bool value;
 
+        public Line Liner { get => liner; set => liner = value; }
+        public List<Node> Listnode { get => listnode; set => listnode = value; }
+        public Line Arrow1 { get => arrow1; set => arrow1 = value; }
+        public Line Arrow2 { get => arrow2; set => arrow2 = value; }
+        public bool Value { get => value; set => this.value = value; }
+        
         /// <summary>
         /// Создание ребра.
         /// </summary>
@@ -50,7 +46,11 @@ namespace Сoursework
             Listnode = new List<Node>() { v[0], v[1] };
         }
 
-
+        /// <summary>
+        /// Создание ребра со стрелкой направления.
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="value"></param>
         public Edge(List<Node> v, bool value)
         {
             this.value = value;
@@ -99,9 +99,6 @@ namespace Сoursework
                 double Y5 = Y4 + (Yp / d) * 5;
                 double X6 = X4 - (Xp / d) * 5;
                 double Y6 = Y4 - (Yp / d) * 5;
-
-
-
 
                 Arrow1 = new Line()
                 {
