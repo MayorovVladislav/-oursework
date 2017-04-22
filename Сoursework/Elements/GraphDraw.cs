@@ -7,7 +7,7 @@ namespace Сoursework
     /// </summary>
     class GraphDraw
     {
-        List<Edge> listedge = new List<Edge>();
+        public List<Edge> listedge = new List<Edge>();
         List<Node> listnode = new List<Node>();
         bool editing = true;
 

@@ -12,7 +12,7 @@ namespace Сoursework
     [Serializable]
     class Edge
     {
-        public int Value { get => value; set => this.value = value; }
+        public bool Value { get => value; set => this.value = value; }
 
         [NonSerialized]
         private Line liner, arrow1, arrow2;
@@ -25,7 +25,7 @@ namespace Сoursework
         public Line Arrow1 { get => arrow1; set => arrow1 = value; }
         public Line Arrow2 { get => arrow2; set => arrow2 = value; }
 
-        private int value;
+        private bool value;
 
         /// <summary>
         /// Создание ребра.
@@ -51,8 +51,9 @@ namespace Сoursework
         }
 
 
-        public Edge(List<Node> v, bool line)
+        public Edge(List<Node> v, bool value)
         {
+            this.value = value;
 
             Liner = new Line()
             {
@@ -68,7 +69,7 @@ namespace Сoursework
             };
 
 
-            if (line)
+            if (value)
             {
                 // координаты центра отрезка
                 double X3 = (this.Liner.X1 + this.Liner.X2) / 2;
@@ -85,11 +86,7 @@ namespace Сoursework
                 double X4 = X3 - (X / d) * 10;
                 double Y4 = Y3 - (Y / d) * 10;
 
-                // из уравнения прямой { (x - x1)/(x1 - x2) = (y - y1)/(y1 - y2) } получаем вектор перпендикуляра
-                // (x - x1)/(x1 - x2) = (y - y1)/(y1 - y2) =>
-                // (x - x1)*(y1 - y2) = (y - y1)*(x1 - x2) =>
-                // (x - x1)*(y1 - y2) - (y - y1)*(x1 - x2) = 0 =>
-                // полученные множители x и y => координаты вектора перпендикуляра
+               //к оординаты вектора перпендикуляра
                 double Xp = this.Liner.Y2 - this.Liner.Y1;
                 double Yp = this.Liner.X1 - this.Liner.X2;
 
@@ -116,11 +113,11 @@ namespace Сoursework
                 };
 
                 Arrow1.Stroke = blackBrush;
-                Arrow1.StrokeThickness = 4;
+                Arrow1.StrokeThickness = 5;
 
 
                 Arrow2.Stroke = blackBrush;
-                Arrow2.StrokeThickness = 4;
+                Arrow2.StrokeThickness = 5;
             }
 
             Liner.Stroke = blackBrush;

@@ -49,13 +49,14 @@ namespace Сoursework
             search.IsEnabled = false;
             buttoneclear.IsEnabled = false;
 
-            paintcheckBox.IsChecked = false;
+            doubleedge.IsChecked = true;
+            oneedge.IsChecked = false;
         }
         /// <summary>
         /// Обработка двойного клика в элементе GridDraw.
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>         
+        /// <param name="e"></param>
         private void GridDraw_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (graph.Editing == true)
@@ -136,13 +137,23 @@ namespace Сoursework
                                         {
                                             bool k = false;
                                             foreach (var x in graph.ListEdge)
+                                            {
                                                 foreach (var y in x.Listnode)
+                                                {
                                                     if (item1 == y)
+                                                    {
                                                         k = true;
+                                                    }
+                                                }
+                                            }
                                             if (!k)
+                                            {
                                                 item1.NodeV.StrokeThickness = 0;
+                                            }
                                             else
+                                            {
                                                 item1.NodeV.StrokeThickness = 1;
+                                            }
                                         }
                                         vertex.Clear();
                                         elip.Clear();
@@ -150,64 +161,84 @@ namespace Сoursework
                                     }
                                     #endregion
                                     //edge => a---b
-                                    Edge a = new Edge(vertex, (bool)this.paintcheckBox.IsChecked);
+                                    if ((bool)this.oneedge.IsChecked)
+                                    {
+                                        Edge a = new Edge(vertex, (bool)this.oneedge.IsChecked);
 
-                                    for (int i = vertex.Count - 1; i >= 0; i--)
-                                    {
-                                        vertextwo.Add(vertex[i]);
-                                    }
-                                    #region
-                                    foreach (var ed in graph.ListEdge)
-                                    {
-                                        if (a.Equals(ed))
+                                        for (int i = vertex.Count - 1; i >= 0; i--)
                                         {
-                                            foreach (var items in elip)
-                                            {
-                                                items.StrokeThickness = 1;
-                                            }
-                                            vertex.Clear();
-                                            vertextwo.Clear();
-                                            elip.Clear();
-                                            return;
+                                            vertextwo.Add(vertex[i]);
                                         }
-                                    }
-                                    #endregion
+                                        foreach (var ed in graph.ListEdge)
+                                        {
+                                            if (a.Equals(ed))
+                                            {
+                                                foreach (var items in elip)
+                                                {
+                                                    items.StrokeThickness = 1;
+                                                }
+                                                vertex.Clear();
+                                                vertextwo.Clear();
+                                                elip.Clear();
+                                                return;
+                                            }
+                                        }
 
-                                    graph.ListEdge.Add(a);
-                                    GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
-                                    Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
-                                    if (a.Arrow1 != null)
-                                    {
-                                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Arrow1);
-                                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Arrow1, -1);
-                                    }
-                                    if (a.Arrow2 != null)
-                                    {
-                                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Arrow2);
-                                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Arrow2, -1);
-                                    }
-                                    stack.Push(1);
-
-                                    if (!(bool)this.paintcheckBox.IsChecked)
-                                    {
-                                        //edge => b---a
-                                        Edge b = new Edge(vertextwo);
-
-
-                                        buttonundo.IsEnabled = true;
-
-                                        graph.ListEdge.Add(b);
+                                        graph.ListEdge.Add(a);
                                         GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                         Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
 
-
-                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
-
+                                        if (a.Arrow1 != null)
+                                        {
+                                            GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Arrow1);
+                                            Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Arrow1, -1);
+                                        }
+                                        if (a.Arrow2 != null)
+                                        {
+                                            GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Arrow2);
+                                            Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Arrow2, -1);
+                                        }
+                                        stack.Push(2);
+                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
                                     }
                                     else
                                     {
-                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
+
+                                        Edge a = new Edge(vertex);
+
+                                        for (int i = vertex.Count - 1; i >= 0; i--)
+                                        {
+                                            vertextwo.Add(vertex[i]);
+                                        }
+                                        foreach (var ed in graph.ListEdge)
+                                        {
+                                            if (a.Equals(ed))
+                                            {
+                                                foreach (var items in elip)
+                                                {
+                                                    items.StrokeThickness = 1;
+                                                }
+                                                vertex.Clear();
+                                                vertextwo.Clear();
+                                                elip.Clear();
+                                                return;
+                                            }
+                                        }
+
+                                        graph.ListEdge.Add(a);
+                                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
+                                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+
+                                        //edge => b---a
+                                        Edge b = new Edge(vertextwo);
+                                        buttonundo.IsEnabled = true;
+                                        graph.ListEdge.Add(b);
+                                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
+                                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+                                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
+                                        stack.Push(1);
                                     }
+
                                     foreach (var x in elip)
                                     {
                                         x.StrokeThickness = 1;
@@ -270,22 +301,20 @@ namespace Сoursework
                         {
                             buttoneclear.IsEnabled = false;
                         }
-
                         break;
                     }
                 case 1:
                     {
                         RemoveEdge(); //a---b
-                        if (!(bool)paintcheckBox.IsChecked)
-                        {
-                            RemoveEdge(); //b---a
-                            Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
-                        }
-                        else
-                        {
-                            Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
-                        }
+                        RemoveEdge(); //b---a
+                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count) / 2).ToString()}";
 
+                        break;
+                    }
+                case 2:
+                    {
+                        RemoveEdge(); //a---b
+                        Edge.Content = $"Количество ребер: {((graph.ListEdge.Count)).ToString()}";
                         break;
                     }
                 default:
@@ -319,7 +348,6 @@ namespace Сoursework
                             }
                         }
                     }
-
                     if (!k)
                     {
                         item1.NodeV.StrokeThickness = 0;
@@ -413,13 +441,15 @@ namespace Сoursework
                         item.Liner.StrokeThickness = 4;
                         if (item.Arrow1 != null)
                         {
+                            item.Arrow1.Stroke = blackBrush;
                             Grid.SetZIndex(item.Arrow1, -1);
-                            item.Arrow1.StrokeThickness = 4;
+                            item.Arrow1.StrokeThickness = 5;
                         }
                         if (item.Arrow2 != null)
                         {
+                            item.Arrow2.Stroke = blackBrush;
                             Grid.SetZIndex(item.Arrow2, -1);
-                            item.Arrow2.StrokeThickness = 4;
+                            item.Arrow2.StrokeThickness = 5;
                         }
                     }
 
@@ -465,13 +495,13 @@ namespace Сoursework
                                         {
                                             Grid.SetZIndex(item.Arrow1, 1);
                                             item.Arrow1.Stroke = blueBrush;
-                                            item.Arrow1.StrokeThickness = 7;
+                                            item.Arrow1.StrokeThickness = 8;
                                         }
                                         if (item.Arrow2 != null)
                                         {
                                             Grid.SetZIndex(item.Arrow2, 1);
                                             item.Arrow2.Stroke = blueBrush;
-                                            item.Arrow2.StrokeThickness = 7;
+                                            item.Arrow2.StrokeThickness = 8;
                                         }
                                         foreach (var x in graph.ListNode)
                                         {
@@ -554,7 +584,6 @@ namespace Сoursework
                                 }
                             }
                         }
-
                         if (!k)
                         {
                             item1.NodeV.StrokeThickness = 0;
@@ -566,7 +595,6 @@ namespace Сoursework
                     }
                     vertex.Clear();
                     elip.Clear();
-
                 }
                 else
                 {
@@ -576,7 +604,7 @@ namespace Сoursework
                     {
                         Color = Colors.Black
                     };
-                    foreach (var item in graph.ListEdge)
+                    foreach (var item in graph.listedge)
                     {
                         item.Liner.Stroke = blackBrush;
                         Grid.SetZIndex(item.Liner, -1);
@@ -588,13 +616,13 @@ namespace Сoursework
                         {
                             Grid.SetZIndex(item.Arrow1, -1);
                             item.Arrow1.Stroke = blackBrush;
-                            item.Arrow1.StrokeThickness = 4;
+                            item.Arrow1.StrokeThickness = 5;
                         }
                         if (item.Arrow2 != null)
                         {
                             Grid.SetZIndex(item.Arrow2, -1);
                             item.Arrow2.Stroke = blackBrush;
-                            item.Arrow2.StrokeThickness = 4;
+                            item.Arrow2.StrokeThickness = 5;
                         }
                     }
                     graph.Editing = true;
@@ -749,11 +777,6 @@ namespace Сoursework
                     bf.Serialize(f, s);
                 }
             }
-        }
-
-        private void PaintcheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Window_Closed(object sender, EventArgs e)
