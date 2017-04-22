@@ -38,7 +38,7 @@
                 <ImageBrush ImageSource="Resources/BackGround.jpg"/>
             </Grid.Background>
         </Grid>
-        <Grid x:Name="GridPanel" Margin="0,36,9,30" HorizontalAlignment="Right" Width="244">
+        <Grid x:Name="GridPanel" Margin="0,36,9,35" HorizontalAlignment="Right" Width="244">
             <ToggleButton Margin="118,134,26,0" x:Name="toggle" Click="ToggleButton_Click" VerticalAlignment="Top" FontFamily="Quirlycues" TabIndex="0" Height="33"/>
             <Button  x:Name="buttoneclear"  Margin="0,0,10,22" Content="Очистить"  FontSize="14" Click="Clear_Click" ToolTip="Remove graph" HorizontalAlignment="Right" Width="106" Height="35" VerticalAlignment="Bottom" TabIndex="5"/>
             <Button   x:Name="search" Margin="28,395,26,0" Content="Поиск" FontSize="18.667" Click="Search_Click" ToolTip="Finding the shortest path" Height="33" VerticalAlignment="Top" TabIndex="3"/>

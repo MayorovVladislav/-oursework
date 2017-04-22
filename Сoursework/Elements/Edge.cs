@@ -14,16 +14,17 @@ namespace Сoursework
     {
         public int Value { get => value; set => this.value = value; }
 
-
-
         [NonSerialized]
-        private Line liner;
+        private Line liner, arrow1, arrow2;
+
 
         private List<Node> listnode;
 
         public Line Liner { get => liner; set => liner = value; }
         internal List<Node> Listnode { get => listnode; set => listnode = value; }
-        
+        public Line Arrow1 { get => arrow1; set => arrow1 = value; }
+        public Line Arrow2 { get => arrow2; set => arrow2 = value; }
+
         private int value;
 
         /// <summary>
@@ -39,10 +40,89 @@ namespace Сoursework
                 X2 = v[1].NodeV.Margin.Left + 14,
                 Y2 = v[1].NodeV.Margin.Top + 14
             };
+
             SolidColorBrush blackBrush = new SolidColorBrush()
             {
                 Color = Colors.Black
             };
+            Liner.Stroke = blackBrush;
+            Liner.StrokeThickness = 4;
+            Listnode = new List<Node>() { v[0], v[1] };
+        }
+
+
+        public Edge(List<Node> v, bool line)
+        {
+
+            Liner = new Line()
+            {
+                X1 = v[0].NodeV.Margin.Left + 14,
+                Y1 = v[0].NodeV.Margin.Top + 14,
+                X2 = v[1].NodeV.Margin.Left + 14,
+                Y2 = v[1].NodeV.Margin.Top + 14
+            };
+
+            SolidColorBrush blackBrush = new SolidColorBrush()
+            {
+                Color = Colors.Black
+            };
+
+
+            if (line)
+            {
+                // координаты центра отрезка
+                double X3 = (this.Liner.X1 + this.Liner.X2) / 2;
+                double Y3 = (this.Liner.Y1 + this.Liner.Y2) / 2;
+
+                // длина отрезка
+                double d = Math.Sqrt(Math.Pow(this.Liner.X2 - this.Liner.X1, 2) + Math.Pow(this.Liner.Y2 - this.Liner.Y1, 2));
+
+                // координаты вектора
+                double X = this.Liner.X2 - this.Liner.X1;
+                double Y = this.Liner.Y2 - this.Liner.Y1;
+
+                // координаты точки, удалённой от центра к началу отрезка на 10px
+                double X4 = X3 - (X / d) * 10;
+                double Y4 = Y3 - (Y / d) * 10;
+
+                // из уравнения прямой { (x - x1)/(x1 - x2) = (y - y1)/(y1 - y2) } получаем вектор перпендикуляра
+                // (x - x1)/(x1 - x2) = (y - y1)/(y1 - y2) =>
+                // (x - x1)*(y1 - y2) = (y - y1)*(x1 - x2) =>
+                // (x - x1)*(y1 - y2) - (y - y1)*(x1 - x2) = 0 =>
+                // полученные множители x и y => координаты вектора перпендикуляра
+                double Xp = this.Liner.Y2 - this.Liner.Y1;
+                double Yp = this.Liner.X1 - this.Liner.X2;
+
+                // координаты перпендикуляров, удалённой от точки X4;Y4 на 5px в разные стороны
+                double X5 = X4 + (Xp / d) * 5;
+                double Y5 = Y4 + (Yp / d) * 5;
+                double X6 = X4 - (Xp / d) * 5;
+                double Y6 = Y4 - (Yp / d) * 5;
+
+                Arrow1 = new Line()
+                {
+                    X1 = X3,
+                    Y1 = Y3,
+                    X2 = X5,
+                    Y2 = Y5
+                };
+
+                Arrow2 = new Line()
+                {
+                    X1 = X3,
+                    Y1 = Y3,
+                    X2 = X6,
+                    Y2 = Y6
+                };
+
+                Arrow1.Stroke = blackBrush;
+                Arrow1.StrokeThickness = 4;
+
+
+                Arrow2.Stroke = blackBrush;
+                Arrow2.StrokeThickness = 4;
+            }
+
             Liner.Stroke = blackBrush;
             Liner.StrokeThickness = 4;
             Listnode = new List<Node>() { v[0], v[1] };

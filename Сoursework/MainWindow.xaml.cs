@@ -42,7 +42,7 @@ namespace Сoursework
             vertextwo = new List<Node>();
             stack = new Stack<int>();
 
-            
+
             toggle.IsChecked = false;
             buttonundo.IsEnabled = false;
             groupBox.IsEnabled = false;
@@ -150,7 +150,7 @@ namespace Сoursework
                                     }
                                     #endregion
                                     //edge => a---b
-                                    Edge a = new Edge(vertex);
+                                    Edge a = new Edge(vertex, (bool)this.paintcheckBox.IsChecked);
 
                                     for (int i = vertex.Count - 1; i >= 0; i--)
                                     {
@@ -176,12 +176,23 @@ namespace Сoursework
                                     graph.ListEdge.Add(a);
                                     GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Liner);
                                     Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Liner, -1);
+                                    if (a.Arrow1 != null)
+                                    {
+                                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Arrow1);
+                                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Arrow1, -1);
+                                    }
+                                    if (a.Arrow2 != null)
+                                    {
+                                        GridDraw.Children.Add(graph.ListEdge[graph.ListEdge.Count - 1].Arrow2);
+                                        Grid.SetZIndex(graph.ListEdge[graph.ListEdge.Count - 1].Arrow2, -1);
+                                    }
                                     stack.Push(1);
+
                                     if (!(bool)this.paintcheckBox.IsChecked)
                                     {
                                         //edge => b---a
                                         Edge b = new Edge(vertextwo);
-                                       
+
 
                                         buttonundo.IsEnabled = true;
 
@@ -309,7 +320,10 @@ namespace Сoursework
                         }
                     }
 
-                    if (!k) item1.NodeV.StrokeThickness = 0;
+                    if (!k)
+                    {
+                        item1.NodeV.StrokeThickness = 0;
+                    }
                 }
             }
             else
@@ -321,6 +335,15 @@ namespace Сoursework
             }
 
             GridDraw.Children.RemoveAt(GridDraw.Children.Count - 1);
+            if (item.Arrow1 != null)
+            {
+                GridDraw.Children.RemoveAt(GridDraw.Children.Count - 1);
+            }
+
+            if (item.Arrow1 != null)
+            {
+                GridDraw.Children.RemoveAt(GridDraw.Children.Count - 1);
+            }
         }
 
         /// <summary>
@@ -388,6 +411,16 @@ namespace Сoursework
                         Grid.SetZIndex(item.Listnode[0].NodeV, 0);
                         Grid.SetZIndex(item.Listnode[1].NodeV, 0);
                         item.Liner.StrokeThickness = 4;
+                        if (item.Arrow1 != null)
+                        {
+                            Grid.SetZIndex(item.Arrow1, -1);
+                            item.Arrow1.StrokeThickness = 4;
+                        }
+                        if (item.Arrow2 != null)
+                        {
+                            Grid.SetZIndex(item.Arrow2, -1);
+                            item.Arrow2.StrokeThickness = 4;
+                        }
                     }
 
                     int ver = int.Parse(comboBox1.Text);
@@ -428,6 +461,18 @@ namespace Сoursework
                                         Grid.SetZIndex(item.Liner, 1);
                                         Grid.SetZIndex(item.Listnode[0].NodeV, 2);
                                         Grid.SetZIndex(item.Listnode[1].NodeV, 2);
+                                        if (item.Arrow1 != null)
+                                        {
+                                            Grid.SetZIndex(item.Arrow1, 1);
+                                            item.Arrow1.Stroke = blueBrush;
+                                            item.Arrow1.StrokeThickness = 7;
+                                        }
+                                        if (item.Arrow2 != null)
+                                        {
+                                            Grid.SetZIndex(item.Arrow2, 1);
+                                            item.Arrow2.Stroke = blueBrush;
+                                            item.Arrow2.StrokeThickness = 7;
+                                        }
                                         foreach (var x in graph.ListNode)
                                         {
                                             if (GridDraw.Children.Contains(x.ValueNode))
@@ -538,6 +583,19 @@ namespace Сoursework
                         Grid.SetZIndex(item.Listnode[0].NodeV, 0);
                         Grid.SetZIndex(item.Listnode[1].NodeV, 0);
                         item.Liner.StrokeThickness = 4;
+
+                        if (item.Arrow1 != null)
+                        {
+                            Grid.SetZIndex(item.Arrow1, -1);
+                            item.Arrow1.Stroke = blackBrush;
+                            item.Arrow1.StrokeThickness = 4;
+                        }
+                        if (item.Arrow2 != null)
+                        {
+                            Grid.SetZIndex(item.Arrow2, -1);
+                            item.Arrow2.Stroke = blackBrush;
+                            item.Arrow2.StrokeThickness = 4;
+                        }
                     }
                     graph.Editing = true;
                     search.IsEnabled = false;

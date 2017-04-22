@@ -157,9 +157,6 @@
     <Resource Include="Resources\BackGround.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\BackGround1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\icon.ico" />
   </ItemGroup>
   <ItemGroup>
