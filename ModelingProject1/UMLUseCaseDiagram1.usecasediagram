@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="f70223c7-5c92-4cac-9505-6676975ec99b" name="UMLUseCaseDiagram1" linkedPackageId="69c5baf9-56f2-4bd5-83e2-0f0f0e5128c2" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="b9dab828-0977-4c2c-8403-7d97e52e42c6" name="Пользователь" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="74ad7d34-de9c-4f06-ba3a-e98936795f3e" />
+        <targetEnds>
+          <association Id="0172143c-0c6e-435d-9b7b-30ef3ccc4727" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="Создание графа" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2f2028b6-6643-4d95-b25a-79c0e6bf09b1" LastKnownName="Создание графа" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1599967d-c3d8-4f79-b90e-99cf3c09d22c" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d200e381-65ae-4062-a607-2f9a0ef069d5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e604dcf0-ef93-42c6-bc00-449655835372" name="Создание графа" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b13a3abd-2883-4eed-b151-09389feb307d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b20f3314-44c6-46b2-b339-c39dfd7abe1d" />
+          </association>
+          <association Id="69d4aecc-3a87-44b6-99eb-79cfadf167d9" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="Нахождение кратчайшего пути в графе" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e24baa5a-7933-4888-889d-bb56b463e792" LastKnownName="Нахождение кратчайшего пути в графе" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9f82cbcd-6ecf-4054-a181-1a71f8369c8d" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0b082070-d055-4dd5-9c45-15ccfc057f5d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c8f58375-82db-46f7-929c-b40bec6a2386" name="Нахождение кратчайшего пути в графе" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3f26c37b-3c94-453b-98b3-b6de0e556e94" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bcde684f-3077-40df-aa94-e63bfade145f" />
+          </association>
+          <association Id="6d38cb3c-88c3-4417-8653-a23e6dba905a" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="Загрузка графа" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6fb27a64-6fa1-43b8-96d1-7aadd3ec1f53" LastKnownName="Загрузка графа" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="383d80a3-4245-4f0e-8b30-6777e376307e" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="583cd40c-4183-40fc-805b-cc6c34af76fb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="db089a62-8e84-479f-9941-f62d88b9e17e" name="Загрузка графа" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="062b81a5-0451-495e-b650-50993b22c419" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="630f9166-3e28-4e4e-93d7-81f6aedd61b3" />
+          </association>
+          <association Id="29b13224-d421-4a0d-9eae-4c058e5314b4" isDerived="false" sourceEndRoleName="Пользователь" targetEndRoleName="Сохранение графа" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7662a459-4584-4d50-aae6-be499fae72c2" LastKnownName="Сохранение графа" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="09a9e04a-9a21-4285-8c67-115eeb8e23cd" name="Пользователь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="32213e40-875a-49a8-bb0f-16bf64fe0958" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6ba4c4ec-c203-4a58-8342-300100fb7672" name="Сохранение графа" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="25a663f7-0d8b-44a1-b811-a18dc28f85a6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d9f4eb26-381a-44b6-8f0c-f6a0a4b898ca" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="c8901fb1-67ed-40a3-a3de-ab2867273687" name="Graph" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2566a2b8-abaa-4a89-8166-d8c1a73719a2" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="2f2028b6-6643-4d95-b25a-79c0e6bf09b1" name="Создание графа" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="13dd89fc-35e2-4804-8062-953639f2956a" />
+        <subjects>
+          <subsystemMoniker Id="c8901fb1-67ed-40a3-a3de-ab2867273687" LastKnownName="Graph" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="e24baa5a-7933-4888-889d-bb56b463e792" name="Нахождение кратчайшего пути в графе" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f4e6c97c-e010-4ce4-81bb-3272b6e62422" />
+        <subjects>
+          <subsystemMoniker Id="c8901fb1-67ed-40a3-a3de-ab2867273687" LastKnownName="Graph" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="6fb27a64-6fa1-43b8-96d1-7aadd3ec1f53" name="Загрузка графа" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d453c932-a1d8-402e-890b-5b6ea137cf11" />
+        <additions>
+          <include Id="a41a2525-dd69-4d4b-94b4-6ce74a3943f5">
+            <useCaseMoniker Id="2f2028b6-6643-4d95-b25a-79c0e6bf09b1" LastKnownName="Создание графа" />
+            <elementDefinition Id="5c7d2e88-4805-4694-90c8-f6c723fc2992" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="c8901fb1-67ed-40a3-a3de-ab2867273687" LastKnownName="Graph" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="7662a459-4584-4d50-aae6-be499fae72c2" name="Сохранение графа" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="32e754ab-d0ce-442a-8360-c0b5180b47ad" />
+        <subjects>
+          <subsystemMoniker Id="c8901fb1-67ed-40a3-a3de-ab2867273687" LastKnownName="Graph" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="69c5baf9-56f2-4bd5-83e2-0f0f0e5128c2" name="ModelingProject1">
+    <elementDefinition Id="1db2f133-1676-4707-8904-ef506dcf5eaa" />
+    <profileInstances>
+      <packageHasProfileInstances Id="735781f6-50ce-4ef5-b8d9-94422886e145">
+        <profileInstance Id="e2699b0b-a6c2-492e-be21-8755ca1af570" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="18b17e4e-ca3d-416a-b895-19e49661197c">
+        <profileInstance Id="e38fea4f-0b5b-4ecf-87eb-949933bb48e5" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>
